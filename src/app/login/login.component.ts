@@ -37,26 +37,49 @@ pswd=""
   }
 
 
-login(){
- var acno=this.acno
- console.log(acno);
- var pswd=this.pswd
- console.log(pswd);
- let userdetails=this.database
- if(acno in userdetails){
-  if(pswd==userdetails[acno]['password']){
-    alert("login successfull")
+// login(){
+//  var acno=this.acno
+//  console.log(acno);
+//  var pswd=this.pswd
+//  console.log(pswd);
+//  let userdetails=this.database
+//  if(acno in userdetails){
+//   if(pswd==userdetails[acno]['password']){
+//     alert("login successfull")
 
+//   }
+//   else{
+//     alert("incorrect password")
+//   }
+
+//  }
+//  else{
+//   alert("user does not exist")
+//  }
+ 
+//  }
+login(a:any,p:any){
+  var acno=a.value
+  console.log(acno);
+  var pswd=p.value
+  console.log(pswd);
+  let userdetails=this.database
+  if(acno in userdetails){
+   if(pswd==userdetails[acno]['password']){
+     alert("login successfull")
+ 
+   }
+   else{
+     alert("incorrect password")
+   }
+ 
   }
   else{
-    alert("incorrect password")
+   alert("user does not exist")
   }
+  
+  }
+ }
+ 
+ //(change)="pwdchange($event)"
 
- }
- else{
-  alert("user does not exist")
- }
- 
- 
-}
-}
