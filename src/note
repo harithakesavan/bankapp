@@ -1,0 +1,17 @@
+two way binding-same time data sharing in both direction
+1.formsModules-Import in AppModule
+   ngModel   -syntanx:[(ngModel)]="variable-name", set name attribute if it set inside a form tag
+path setup:
+    path='' component:logincomponent
+dependency injection:if we want to use the property of any other class then we have to use the object of that class.injection took place in the constructor.
+Angular service:-to create service -ng g s service-name
+ngSubmit-entire submission using enter button.
+
+angular form
+
+1.template driven model
+
+2.model driven model-Reactive forms-reactiveformsmodule
+  (form group,form array,form control)
+
+
