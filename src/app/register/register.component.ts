@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
    }
    else{
     alert("invalid form")
+    
    }
  
  }
