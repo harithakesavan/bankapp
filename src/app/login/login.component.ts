@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -20,8 +21,13 @@ pswd=""
   1001:{acno:1001,username:'neera',password:1001,balance:6000},
   1002:{acno:1002,username:'neerajana',password:1002,balance:50000}
 }
+loginform=this.formBuilder.group({
+  acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
+  
+})
 
-  constructor(private router:Router,private dataService:DataService) { }
+  constructor(private formBuilder:FormBuilder, private router:Router,private dataService:DataService) { }
 
   ngOnInit(): void {
   }
@@ -40,15 +46,23 @@ pswd=""
 
 
 login(){
- var acno=this.acno
+ var acno=this.loginform.value.acno
  console.log(acno);
- var pswd=this.pswd
+ var pswd=this.loginform.value.pswd
  console.log(pswd);
+ if(this.loginform.valid){
  const result=this.dataService.login(acno,pswd)
  if(result){
   alert("log in successfull")
   this.router.navigateByUrl('Home')
  }
+ else{
+  alert("user not exist")
+ }
+}
+else{
+  alert("invalid form")
+}
  
  
  }

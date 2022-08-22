@@ -1,11 +1,20 @@
 
-    <form name="myform" method="post" (ngSubmit)="login()">
+    <form [formGroup]="loginform" name="myform" method="post" (ngSubmit)="login()">
         <h1>{{header}}</h1>
     <div id="div1">
         <h1><b><i>login</i></b></h1><br><br>
-        <input [(ngModel)]= "acno" type="text" name="acno" [placeholder]="accplaceholder"><br><br>
+        <input formControlName="acno" [(ngModel)]= "acno" type="text" name="acno" [placeholder]="accplaceholder"><br>
+        <div *ngIf="this.loginform.get('acno')?.touched&&this.loginform.get('acno')?.errors"
+    style="color:red ;">
+        Invalid Account number
+    </div><br>
+        
       
-        <input [(ngModel)] ="pswd" type="password" name="pswd" placeholder="password"><br><br>
+        <input formControlName="pswd" [(ngModel)] ="pswd" type="password" name="pswd" placeholder="password"><br>
+        <div *ngIf="this.loginform.get('pswd')?.touched&&this.loginform.get('pswd')?.errors"
+    style="color:red ;">
+        Invalid Password
+    </div><br>
        
         <button type="submit">login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        

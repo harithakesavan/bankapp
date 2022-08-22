@@ -16,8 +16,8 @@ export class RegisterComponent implements OnInit {
 
   registerForm=this.formBuilder.group({
     uname:['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
-    acno:[''],
-    pswd:['']
+    acno:['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]*')]]
   })
 
   constructor(private formBuilder:FormBuilder, private dataservice:DataService,private router:Router) { }
